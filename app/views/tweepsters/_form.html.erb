@@ -1,0 +1,25 @@
+<%= form_for(@tweepster) do |f| %>
+  <% if @tweepster.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tweepster.errors.count, "error") %> prohibited this tweepster from being saved:</h2>
+
+      <ul>
+      <% @tweepster.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username %>
+  </div>
+  <div class="field">
+    <%= f.label :twitter_id %><br />
+    <%= f.text_field :twitter_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

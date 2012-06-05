@@ -1,4 +1,8 @@
 SnowSample::Application.routes.draw do
+  resources :followers
+
+  resources :tweepsters
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
