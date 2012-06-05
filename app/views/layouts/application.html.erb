@@ -8,7 +8,10 @@
 </head>
 <body>
 
-<%= yield %>
-
+  <%= yield %>
+  
+  <footer>
+  	<%= Twitter.rate_limit_status.remaining_hits.to_s + " Twitter API request(s)   remaining this hour" %>
+  </footer>
 </body>
 </html>

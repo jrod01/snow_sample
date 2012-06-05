@@ -3,7 +3,7 @@
 <table>
   <tr>
     <th>Username</th>
-    <th>Twitter</th>
+    <th>Follower count</th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,7 +12,7 @@
 <% @tweepsters.each do |tweepster| %>
   <tr>
     <td><%= tweepster.username %></td>
-    <td><%= tweepster.twitter_id %></td>
+    <td><%= tweepster.follower_count %></td>
     <td><%= link_to 'Show', tweepster %></td>
     <td><%= link_to 'Edit', edit_tweepster_path(tweepster) %></td>
     <td><%= link_to 'Destroy', tweepster, confirm: 'Are you sure?', method: :delete %></td>
