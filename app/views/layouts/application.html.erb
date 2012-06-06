@@ -5,11 +5,12 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <%= yield :header %>
 </head>
 <body>
 
   <%= yield %>
-  
+
   <footer>
   	<%= Twitter.rate_limit_status.remaining_hits.to_s + " Twitter API request(s)   remaining this hour" %>
   </footer>
