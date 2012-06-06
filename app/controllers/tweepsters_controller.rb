@@ -14,6 +14,7 @@ class TweepstersController < ApplicationController
   # GET /tweepsters/1.json
   def show
     @tweepster = Tweepster.find(params[:id])
+    @tweepster.save_followers
 
     respond_to do |format|
       format.html # show.html.erb

@@ -7,6 +7,7 @@ gem 'rails', '3.2.3'
 
 gem 'pg', :group => :production
 gem "twitter"
+gem "heroku"
 
 group :development do
   gem 'sqlite3'
