@@ -10,7 +10,9 @@ class Tweepster < ActiveRecord::Base
   def save_followers
     if cursor.nonzero?
       fids = Twitter.follower_ids(username, cursor: cursor)
-      followers.create(fids.ids.map{ |tid| { twitter_id: tid } })
+      id_list = (fids.ids - follower_ids).map{ |tid| "(#{id}, #{tid}" }
+      # followers.create(fids.ids.map{ |tid| { twitter_id: tid } })
+      Follower.connection.execute("INSERT INTO followers (tweepster_id, twitter_id) VALUES #{id_list.join(',')}")
     end
   end
 end

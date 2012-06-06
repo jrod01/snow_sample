@@ -11,21 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120606052300) do
+ActiveRecord::Schema.define(:version => 20120605223634) do
 
   create_table "followers", :force => true do |t|
-    t.string   "twitter_id"
-    t.integer  "tweepster_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.integer "twitter_id",   :limit => 8
+    t.integer "tweepster_id", :limit => 8
   end
+
+  add_index "followers", ["twitter_id", "tweepster_id"], :name => "index_followers_on_twitter_id_and_tweepster_id", :unique => true
 
   create_table "tweepsters", :force => true do |t|
     t.string   "username"
-    t.string   "twitter_id"
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
-    t.integer  "cursor",     :limit => 8
+    t.integer  "twitter_id", :limit => 8
+    t.integer  "cursor",     :limit => 8, :default => -1, :null => false
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
   end
 
 end
