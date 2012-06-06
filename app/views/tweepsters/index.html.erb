@@ -3,7 +3,8 @@
 <table>
   <tr>
     <th>Username</th>
-    <th>Follower count</th>
+    <th>Followers</th>
+    <th>Collected</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,6 +14,7 @@
   <tr>
     <td><%= tweepster.username %></td>
     <td><%= tweepster.follower_count %></td>
+    <td><%= tweepster.followers.size %></td>
     <td><%= link_to 'Show', tweepster %></td>
     <td><%= link_to 'Edit', edit_tweepster_path(tweepster) %></td>
     <td><%= link_to 'Destroy', tweepster, confirm: 'Are you sure?', method: :delete %></td>
