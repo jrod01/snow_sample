@@ -1,10 +1,13 @@
 class Tweepster < ActiveRecord::Base
-  attr_accessible :twitter_id, :username
+  attr_accessible :twitter_id, :username, :cursor
 
   has_many :followers
 
   def follower_count
-  	Twitter.user(username).followers_count
+    # Cache the value of the follower count. This is refreshed once per hour:
+  	Rails.cache.fetch("#{username}.follower_count-#{Time.now.strftime("%y%m%d%H")}") do
+      Twitter.user(username).followers_count
+    end
   end
 
   def save_followers
