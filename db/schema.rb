@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(:version => 20120605223634) do
     t.integer "tweepster_id", :limit => 8
   end
 
+  add_index "followers", ["tweepster_id"], :name => "index_followers_on_tweepster_id"
   add_index "followers", ["twitter_id", "tweepster_id"], :name => "index_followers_on_twitter_id_and_tweepster_id", :unique => true
 
   create_table "tweepsters", :force => true do |t|

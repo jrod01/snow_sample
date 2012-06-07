@@ -6,5 +6,6 @@ class CreateFollowers < ActiveRecord::Migration
     end
 
     add_index :followers, [:twitter_id, :tweepster_id], :unique => true
+    add_index :followers, :tweepster_id
   end
 end

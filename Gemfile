@@ -10,7 +10,8 @@ gem "twitter"
 gem "heroku"
 
 group :development do
-  gem 'sqlite3'
+  gem  'mysql2', :git => "https://github.com/brianmario/mysql2.git"
+  gem "powder", :git => "git://github.com/brookr/powder"
 end
 
 
