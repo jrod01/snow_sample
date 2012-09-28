@@ -10,7 +10,7 @@ class FollowersController < ApplicationController
     end
   end
 
-  # GET /followers/1
+  # GET followers/1
   # GET /followers/1.json
   def show
     @follower = Follower.find(params[:id])
