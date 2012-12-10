@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120605223634) do
+ActiveRecord::Schema.define(:version => 20121011233542) do
 
   create_table "followers", :force => true do |t|
     t.integer "twitter_id",   :limit => 8
@@ -27,6 +27,15 @@ ActiveRecord::Schema.define(:version => 20120605223634) do
     t.integer  "cursor",     :limit => 8, :default => -1, :null => false
     t.datetime "created_at",                              :null => false
     t.datetime "updated_at",                              :null => false
+  end
+
+  create_table "voting_advices", :force => true do |t|
+    t.string   "to"
+    t.text     "content"
+    t.datetime "sent_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "twitter_id"
   end
 
 end
